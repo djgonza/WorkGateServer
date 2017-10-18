@@ -30,6 +30,11 @@ app.use(expressJwt({
 }));
 app.use(revokedToken);
 
+//Para pruebas
+app.use('/ping', (req, res) => {
+	res.status(200).send("Ping...");
+});
+
 /**
 * Define todas las rutas de la aplicacion
 */
