@@ -20,7 +20,7 @@ db.once('close', function () {
 
 //Connect to the database
 //Check the ENV to node
-if(process.env.NODE_ENV == "PROD"){
+if(process.env.NODE_ENV == "production"){
 	mongoose.connect(config.connectionString, {
 		useMongoClient: true
 	});
