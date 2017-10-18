@@ -1,0 +1,12 @@
+﻿{
+	"_comments": {
+		"connectionStringLocal": "define local connection to db",
+		"connectionString": "define external connection to db",
+		"apiUrl": "url api",
+		"secret": "secret key for jwt"
+	},
+	"connectionStringLocal": "mongodb://localhost:27017/WorkGate",
+    "connectionString": "mongodb://dvd:dvd181191@gestor-shard-00-00-l6mde.mongodb.net:27017,gestor-shard-00-01-l6mde.mongodb.net:27017,gestor-shard-00-02-l6mde.mongodb.net:27017/gestor?ssl=true&replicaSet=Gestor-shard-0&authSource=admin",
+    "apiUrl": "http://localhost:4000",
+    "secret": "WorkGateProyect"
+}
