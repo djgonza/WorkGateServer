@@ -7,6 +7,7 @@ var expressJwt = require('express-jwt');
 var config = require('config.json');
 var revokedToken = require('middleware/revokedToken');
 var dbConnection = require('middleware/dbConnection');
+var router = express.Router();
 
 app.use(cors());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -26,20 +27,21 @@ app.use(expressJwt({
 	}
 }).unless({ 
 	//Rutas excluidas de la autentificacion
-	path: ['/user/create', '/authenticate/bygoogle'] 
+	path: ['/user/create', '/authenticate/bygoogle', '/ping'] 
 }));
 app.use(revokedToken);
-
-//Para pruebas
-app.use('/ping', (req, res) => {
-	res.status(200).send("Ping...");
-});
 
 /**
 * Define todas las rutas de la aplicacion
 */
 app.use('/user', require('./controllers/users.controller'));
 app.use('/authenticate', require('./controllers/authenticate.controller'));
+
+//Para pruebas
+app.use('/ping', router.get('/', (req, res) => {
+	res.status(200).send("ping");
+}));
+
 
 // start server
 var port = 4000;
