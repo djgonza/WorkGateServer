@@ -44,6 +44,7 @@ app.use('/ping', router.get('/', (req, res) => {
 
 
 // start server
+console.log(process.env.NODE_ENV);
 var port = 4000;
 if (process.env.NODE_ENV == "PROD"){
 	port = process.env.PORT;
