@@ -39,7 +39,7 @@ app.use('/authenticate', require('./controllers/authenticate.controller'));
 
 //Para pruebas
 app.use('/ping', router.get('/', (req, res) => {
-	res.status(200).send("ping");
+	res.status(200).send({ping: "ping"});
 }));
 
 
