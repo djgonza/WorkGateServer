@@ -1,11 +1,11 @@
 ﻿{
 	"_comments": {
-		"connectionStringLocal": "define local connection to db",
+		"connectionStringLocal": "define local connection to db / mongodb://localhost:27017/WorkGate",
 		"connectionString": "define external connection to db",
 		"apiUrl": "url api",
 		"secret": "secret key for jwt"
 	},
-	"connectionStringLocal": "mongodb://localhost:27017/WorkGate",
+	"connectionStringLocal": "mongodb://workgateproyect:dXFKGbhtStjxW7Ic@cluster0-shard-00-00-okhmm.mongodb.net:27017,cluster0-shard-00-01-okhmm.mongodb.net:27017,cluster0-shard-00-02-okhmm.mongodb.net:27017/WorkGate?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin",
     "connectionString": "mongodb://workgateproyect:dXFKGbhtStjxW7Ic@cluster0-shard-00-00-okhmm.mongodb.net:27017,cluster0-shard-00-01-okhmm.mongodb.net:27017,cluster0-shard-00-02-okhmm.mongodb.net:27017/WorkGate?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin",
     "apiUrl": "https://workgate.herokuapp.com/",
     "secret": "WorkGateProyect"

@@ -6,27 +6,48 @@ var UserService = require('./user.service');
 
 var service = {};
 
-service.authenticateByEmail = authenticateByEmail;
+service.authenticateByGoogle = authenticateByGoogle;
 
 module.exports = service;
 
-/**
-* Inicia sesion con el email y la contraseña
-* Devuelve el token creado
+/*
+* 
+* Intenta el login con un usuario de google
+* Si lo consigue devuelve un token
+* Si no lo consigue crea el usuario y vuelve a realizar el login devolviendo el token
 */
-function authenticateByEmail(email, userId) {
+
+function authenticateByGoogle (googleUser) {
 
 	var deferred = Q.defer();
 
-	UserService.getUserByEmail(email).then(user => {
-		if (user && bcrypt.compareSync(userId, user.userId)) {
-			// authentication successful
-			deferred.resolve({
-				token: jwt.sign({ id: user._id }, config.secret)
+	// Busca el usuario por el email
+	UserService.getGoogleUserByEmail(googleUser.email)
+	.then(user => {
+
+		// Crea el token
+		let token = getTokenGoogleUser (googleUser, user);
+
+		// Si no puede crear el token crea el usuario
+		if (!token) {
+
+			UserService.createGoogleUser(googleUser)
+			.then(user => {
+
+				// Crea el token
+				let token = getTokenGoogleUser (googleUser, user);
+				// Devuelve el token
+				deferred.resolve(token);
+
+			})
+			.catch(err => {
+				deferred.reject(err);
 			});
+
 		} else {
-			// authentication failed
-			deferred.resolve();
+
+			// Devuelve el token
+			deferred.resolve(token);
 		}
 
 	})
@@ -35,4 +56,37 @@ function authenticateByEmail(email, userId) {
 	});
 
 	return deferred.promise;
+
 }
+
+
+
+/*
+*
+* Crea y retorna el token o null
+*/
+
+function getTokenGoogleUser (googleUser, dbUser) {
+
+	if (!googleUser || !dbUser || !bcrypt.compareSync(googleUser.userId, dbUser.userId)) {
+		return null;
+	}
+
+	let token = {
+		token: jwt.sign({ id: dbUser._id }, config.secret)
+	};
+
+	return token;
+
+}
+
+
+
+
+
+
+
+
+
+
+

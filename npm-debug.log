@@ -7,8 +7,8 @@
 6 silly lifecycle despensa-server@0.0.0~prestart: no script for prestart, continuing
 7 info lifecycle despensa-server@0.0.0~start: despensa-server@0.0.0
 8 verbose lifecycle despensa-server@0.0.0~start: unsafe-perm in lifecycle true
-9 verbose lifecycle despensa-server@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/davidjimenezgonzalez/Desktop/GitHub/Apps/tienda-server/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands
-10 verbose lifecycle despensa-server@0.0.0~start: CWD: /Users/davidjimenezgonzalez/Desktop/GitHub/Apps/tienda-server
+9 verbose lifecycle despensa-server@0.0.0~start: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/davidjimenezgonzalez/Desktop/GitHub/WorkGateServer/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.6/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:/Library/Frameworks/Mono.framework/Versions/Current/Commands:/Users/davidjimenezgonzalez/Library/Android/sdk/platform-tools/
+10 verbose lifecycle despensa-server@0.0.0~start: CWD: /Users/davidjimenezgonzalez/Desktop/GitHub/WorkGateServer
 11 silly lifecycle despensa-server@0.0.0~start: Args: [ '-c', 'node server.js' ]
 12 silly lifecycle despensa-server@0.0.0~start: Returned: code: 1  signal: null
 13 info lifecycle despensa-server@0.0.0~start: Failed to exec start script
@@ -23,7 +23,7 @@
 14 verbose stack     at maybeClose (internal/child_process.js:877:16)
 14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid despensa-server@0.0.0
-16 verbose cwd /Users/davidjimenezgonzalez/Desktop/GitHub/Apps/tienda-server
+16 verbose cwd /Users/davidjimenezgonzalez/Desktop/GitHub/WorkGateServer
 17 error Darwin 16.7.0
 18 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "start"
 19 error node v6.9.1
